@@ -1,13 +1,15 @@
+
+
 import numpy as np
 import random
 from copy import deepcopy
 import time
 from multiprocessing.dummy import Pool as ThreadPool
 import itertools
-cimport numpy as np
+#cimport numpy as np
 import cython
 from cython.parallel import parallel, prange
-
+cimport openmp
 
 def different_cs(cs1, cs2):
     for i in range(len(cs1)):
@@ -74,12 +76,12 @@ def n2means(samples, mask):
     print('Idividual: ', indi)
     indi += 1
     new_samples = []
-    num_thteads = 6
-    with nogil, parallel(num_threads):
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
         for sample in prange(samples, nogil=True):
             new_sample = []
             print(len(mask))
-            break
             for j in range(1, len(samples[0])):
                 if mask[j] == 1:
                     new_sample.append(sample[j])
@@ -160,7 +162,6 @@ for g in range(n_generations):
     #results = pool.starmap(n2means, zip(itertools.repeat(samples), gen))
     results = n2means(samples,gen)
 
-    break
 
     for ind in range(n_individuals):
         count = gen[ind][1:].count(1)
@@ -181,14 +182,14 @@ for g in range(n_generations):
     genlist.append(count)
     gen = deepcopy(next_gen)
 
-with open('e4-err.txt', 'w') as file:
-    for e in errlist:
-        print(e, file=file)
+#with open('e4-err.txt', 'w') as file:
+#    for e in errlist:
+#        print(e, file=file)
 
-with open('e4-gens.txt', 'w') as file:
-    for g in genlist:
-        print(g, file=file)
+#with open('e4-gens.txt', 'w') as file:
+#    for g in genlist:
+#        print(g, file=file)
 
-with open('e4-tot.txt', 'w') as file:
-    for s in sumlist:
-        print(s, file=file)
+#with open('e4-tot.txt', 'w') as file:
+#    for s in sumlist:
+#        print(s, file=file)

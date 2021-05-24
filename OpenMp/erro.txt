@@ -1,0 +1,403 @@
+/home/kovaleski/.local/lib/python3.8/site-packages/Cython/Compiler/Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: /home/kovaleski/Área de Trabalho/Pdp/OpenMp/k2means_omp.pyx
+  tree = Parsing.p_module(s, pxd, full_module_name)
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    indi += 1
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+                            ^
+------------------------------------------------------------
+
+k2means_omp.pyx:80:29: stop argument must be numeric
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:81:12: Assignment of Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    indi += 1
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+                           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:80:28: Trying to release the GIL while it was previously released.
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    indi += 1
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+                            ^
+------------------------------------------------------------
+
+k2means_omp.pyx:80:29: stop may not be a Python object as we don't have the GIL
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    indi += 1
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:80:12: target may not be a Python object as we don't have the GIL
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    new_samples = []
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+                        ^
+------------------------------------------------------------
+
+k2means_omp.pyx:81:25: Constructing Python list not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:82:12: Python print statement not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:82:12: Constructing Python tuple not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+                    ^
+------------------------------------------------------------
+
+k2means_omp.pyx:82:21: Converting to Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    cdef int num_thteads
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+                    ^
+------------------------------------------------------------
+
+k2means_omp.pyx:82:21: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                    ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:21: Iterating over Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                         ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:26: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                         ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:26: Constructing Python tuple not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                                ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:33: Converting to Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                                ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:33: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+    with nogil, parallel():
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                                        ^
+------------------------------------------------------------
+
+k2means_omp.pyx:83:41: Indexing Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                          ^
+------------------------------------------------------------
+
+k2means_omp.pyx:84:27: Truth-testing Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                          ^
+------------------------------------------------------------
+
+k2means_omp.pyx:84:27: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+        num_thteads = openmp.omp_get_num_threads()
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                      ^
+------------------------------------------------------------
+
+k2means_omp.pyx:84:23: Indexing Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+                                    ^
+------------------------------------------------------------
+
+k2means_omp.pyx:85:37: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+        for sample in prange(samples, nogil=True):
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+                                           ^
+------------------------------------------------------------
+
+k2means_omp.pyx:85:44: Indexing Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                             ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:30: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                              ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:31: Constructing Python list not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                                     ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:38: Indexing Python object not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                                                  ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:51: Calling gil-requiring function not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                                            ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:45: Accessing Python attribute not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                                          ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:43: Accessing Python global or builtin not allowed without gil
+
+Error compiling Cython file:
+------------------------------------------------------------
+...
+            new_sample = []
+            print(len(mask))
+            for j in range(1, len(samples[0])):
+                if mask[j] == 1:
+                    new_sample.append(sample[j])
+            new_samples.append([sample[0], np.array(new_sample)])
+                                                  ^
+------------------------------------------------------------
+
+k2means_omp.pyx:86:51: Constructing Python tuple not allowed without gil
+Traceback (most recent call last):
+  File "setup.py", line 15, in <module>
+    ext_modules=cythonize(ext_modules),
+  File "/home/kovaleski/.local/lib/python3.8/site-packages/Cython/Build/Dependencies.py", line 1102, in cythonize
+    cythonize_one(*args)
+  File "/home/kovaleski/.local/lib/python3.8/site-packages/Cython/Build/Dependencies.py", line 1225, in cythonize_one
+    raise CompileError(None, pyx_file)
+Cython.Compiler.Errors.CompileError: k2means_omp.pyx
+

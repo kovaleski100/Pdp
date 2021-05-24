@@ -73,8 +73,6 @@ def n2means(samples, mask):
     new_samples = []
     for sample in samples:
         new_sample = []
-        print(len(mask))
-        break
         for j in range(1, len(samples[0])):
             if mask[j] == 1:
                 new_sample.append(sample[j])
@@ -147,14 +145,13 @@ gen = [[np.inf] + [random.choice([0, 1]) for i in range(n_genes)] for ind in ran
 errlist = []
 genlist = []
 sumlist = []
-
 for g in range(n_generations):
     indi = 0
     print('Generation: ', g)
     pool = ThreadPool(4)
     results = pool.starmap(n2means, zip(itertools.repeat(samples), gen))
+    len(results)
 
-    break
 
     for ind in range(n_individuals):
         count = gen[ind][1:].count(1)
