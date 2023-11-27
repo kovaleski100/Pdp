@@ -133,8 +133,8 @@ for i in range(n_samples):
         this_line.append(float(l[i]))
     samples.append(this_line)
 
-n_generations = 100
-n_individuals = 50
+n_generations = 10
+n_individuals = 5
 alpha = 0.002
 size_elite = 0.2 * n_individuals
 size_middle = 0.3 * n_individuals + size_elite
